@@ -11,6 +11,28 @@ public class main_func {
 		System.out.println("Enter 4 to do traversal");
 		System.out.println("Press 0 for Exit.");
 		System.out.println("You should Have a Choice First!! ");
-
+		int ch = -1;
+		while(ch != 0) {
+			ch = sc.nextInt();
+			switch(ch) {
+			case 1: 
+				int x = sc.nextInt();
+				L1.insert_beg(x);
+				break;
+			case 4:
+				L1.traverse();
+				break;
+			case 5:
+				L1.delete_beg();
+				break;
+			case 6:
+				L1.delete_end();
+				break;
+			case 7:
+				int lc = sc.nextInt();
+				L1.delete_pos(lc);
+				break;
+			}
+		}
 	}
 }
