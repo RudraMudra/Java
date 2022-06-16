@@ -70,4 +70,28 @@ public class SLL {
 			p = p.link;
 		}
 	}
+	public  void delete_beg() {
+		if(isEmpty()) {
+			System.out.println("not possible");
+		}
+		else {
+			start = start.link;
+		}
+	}
+	public void delete_end() {
+		Node p = start;
+		while(p.link.link != null) {
+			p = p.link;
+		}
+		p.link = null;
+	}
+	public void delete_pos(int lc) {
+		Node p = start;
+		int i=1;
+		while(i != lc-1) {
+			p = p.link;
+			i++;
+		}
+		p.link = p.link.link;
+	}
 }
