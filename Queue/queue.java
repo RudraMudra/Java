@@ -1,4 +1,4 @@
-package pratik;
+
 
 public class queue {
 	int a[];
