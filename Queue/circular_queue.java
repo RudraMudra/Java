@@ -1,11 +1,11 @@
 package pratik;
 
-public class queue {
+public class circular_queue {
 	int a[];
 	int r;
 	int f;
 	int max;
-	public queue(int m) {
+	public circular_queue(int m) {
 		r=-1;
 		f=-1;
 		max=m;
@@ -19,18 +19,18 @@ public class queue {
 	}
 	void insert(int x)
 	{
-		if(r==(max-1)) {
-			System.out.println("Cannot Insert as it exceeds the max size");
+		if(f==(r+1)%max) {
+			System.out.println("cannot insert as it exceeds the current size");
 			return;
 		}
 		if(isEmpty()) {
-			r++;
-			f++;
+			r=(r+1)%max;
+			f=(f+1)%max;
 			a[r]=x;
 		}
 		else
 		{
-			r++;
+			r=(r+1)%max;
 			a[r]=x;
 		}
 	}
@@ -44,9 +44,7 @@ public class queue {
 			f=-1;
 			return;
 		}
-		
-		int d=a[f];
-		f++;
+		f=(f+1)%max;
 		
 	}
 	void traverse() {
@@ -54,8 +52,18 @@ public class queue {
 			System.out.println("the queue is currently empty");
 			return;
 		}
-		for(int i=f;i<=r;i++) {
-			System.out.print(a[i]+" ");
+		if(r>f) {
+			for(int i=f;i<=r;i++) {
+				System.out.print(a[i]+" ");
+			}
+		}
+		else {
+			for(int i=f;i<=max-1;i++) {
+				System.out.print(a[i]+" ");
+			}
+			for(int i=0;i<=r;i++) {
+				System.out.print(a[i]+" ");
+			}
 		}
 		System.out.println();
 	}
